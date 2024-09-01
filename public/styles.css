@@ -1,0 +1,181 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #f2f2f2);
+    background-size: 600% 600%;
+    animation: AnimatedGradient 30s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+}
+
+@keyframes AnimatedGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 350px;
+    margin: 10px 10px 0px 10px;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+}
+
+#query-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 350px;
+    overflow: auto;
+    z-index: 1;
+}
+
+#query-container {
+    scrollbar-width: thin;
+    scrollbar-color: #f4acb7 #fde2e4;
+}
+
+#query-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#query-container::-webkit-scrollbar-track {
+    background: #f9f4f6;
+}
+
+#query-container::-webkit-scrollbar-thumb {
+    background-color: #f4acb7; 
+    border-radius: 10px;
+}
+
+#insert-container {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+#delete-container {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#update-container {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+#sort-container {
+    top: 0;
+    right: 5%;
+}
+
+#find-container {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#count-container {
+    top: 0;
+    left: 5%;
+}
+
+.container:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #ff9a9e; /* 按钮基本颜色，与背景起始颜色相匹配 */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #fad0c4; /* 按钮悬停颜色，与背景结束颜色相匹配 */
+    color: #333;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.data-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.message-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    color: #333;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: opacity 0.5s, top 0.5s;
+}
+
+.message-box.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+
+.message-box.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+
+.message-box.show {
+    display: block;
+    opacity: 1;
+    top: 20px;
+}
+
+.message-box.hide {
+    opacity: 0;
+    top: 0;
+}

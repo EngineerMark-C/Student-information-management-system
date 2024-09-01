@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div id="messageBox" class="message-box"></div>
+    <div class="containers-wrapper"></div>
+    <div class="container" id="insert-container">
+        <h1>插入数据</h1>
+        ID: <input type="number" id="insertId">
+        姓名: <input type="text" id="insertName">
+        分数1: <input type="number" id="insertScore1">
+        分数2: <input type="number" id="insertScore2">
+        <button onclick="insertData()">插入数据</button>
+    </div>
+    <div class="container" id="delete-container">
+        <h1>删除数据</h1>
+        ID: <input type="number" id="deleteId">
+        <button onclick="deleteData()">删除数据</button>
+    </div>
+    <div class="container" id="query-container">
+        <h1>查询数据</h1>
+        <button onclick="queryData()">查询所有数据</button>
+        <table id="queryResult" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>分数1</th>
+                    <th>分数2</th>
+                    <th>更改时间</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="container" id="update-container">
+        <h1>更新数据</h1>
+        ID: <input type="number" id="updateId">
+        姓名: <input type="text" id="updateName">
+        分数1: <input type="number" id="updateScore1">
+        分数2: <input type="number" id="updateScore2">
+        <button onclick="updateData()">更新数据</button>
+    </div>
+    <div class="container" id="sort-container">
+        <h1>排序数据</h1>
+        排序关键词: <select id="sortScoreColumn">
+                    <option value="score1">分数1</option>
+                    <option value="score2">分数2</option>
+                    <option value="changeTime">更改时间</option>
+                </select>
+        排序方式: <select id="sortOrder">
+                    <option value="asc">升序</option>
+                    <option value="desc">降序</option>
+                </select>
+        <button onclick="sortDataByScore(document.getElementById('sortScoreColumn').value, document.getElementById('sortOrder').value)">排序数据</button>
+    </div>
+    <div class="container" id="find-container">
+        <h1>查找学生</h1>
+        ID: <input type="number" id="findId">
+        <button onclick="findStudentById(document.getElementById('findId').value)">查找学生</button>
+    </div>
+    <div class="container" id="count-container">
+        <h1>学生总数</h1>
+        <input type="text" id="totalCount" readonly>
+        <button onclick="displayTotalCount()">显示总数</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
