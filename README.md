@@ -25,6 +25,7 @@
 9.	实现系统的稳定运行，不出现bug
 ### 概要设计
 ![流程图](https://github.com/EngineerMark-C/Student-information-management-system/blob/main/picture/%E6%B5%81%E7%A8%8B%E5%9B%BE.svg)
+
 用户通过前端界面进行插入、删除、查询、更新或排序数据等操作，当用户执行操作时，前端JavaScript代码会捕获这些事件，并构造一个HTTP请求发送到服务器。服务器（使用Node.js和Express框架）接收到HTTP请求，并根据请求的路径（如/insert、/delete、/query等）将请求路由到相应的处理函数。处理函数提取前端发送参数并构造一个命令字符串，用exec函数调用外部C语言，C语言程序接收命令行参数，与MySQL数据库进行交互，执行相应的数据库操作。C语言程序将操作结果输出到标准输出（stdout）或标准错误（stderr），这些输出将被exec函数捕获。后端服务器接收到C语言程序的输出后，将其解析并构造为JSON格式的HTTP响应，发送回前端。前端接收到HTTP响应后，更新用户界面并显示操作结果。
 ### 设计过程
 这里着重讲解服务器及后端程序
